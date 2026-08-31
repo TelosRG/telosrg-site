@@ -23,8 +23,10 @@ at 360px width with no horizontal overflow.
 
 ## Deploying it
 
-Not yet deployed anywhere. When it is, it's a static host (e.g. GitHub Pages, Netlify,
-Cloudflare Pages) pointed at this repo — no server-side piece to configure.
+Deployed via GitHub Pages, serving directly off `main` at the repo root — no build step,
+so a push to `main` is a deploy. Live at https://telosrg.github.io/telosrg-site/. Repo:
+https://github.com/TelosRG/telosrg-site. A custom domain (`telosrg.com`, already owned) can
+be attached later by adding a `CNAME` file and pointing DNS at GitHub Pages; not done yet.
 
 ## Architecture
 

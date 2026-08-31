@@ -2,6 +2,8 @@
 
 The public marketing site for Telos Research Group.
 
+Live at https://telosrg.github.io/telosrg-site/
+
 A single static page: an org mark, a card grid — one card per app in the portfolio, each
 linking out to that app's GitHub repo — and a footer link to the GitHub org. No backend, no
 build step, no framework.
