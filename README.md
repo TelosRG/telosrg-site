@@ -2,9 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050607,50:35e0c4,100:8b5cf6&height=200&section=header&text=telosrg-site&fontSize=46&fontColor=e9f3f1&fontAlignY=38&desc=The%20public%20marketing%20site%20for%20Telos%20Research%20Group&descAlignY=58&descSize=18" width="100%" />
 
-<a href="https://telosrg.github.io/telosrg-site/">
-  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=18&pause=1200&color=35E0C4&center=true&vCenter=true&width=560&lines=One+static+page.+No+backend%2C+no+build+step.;A+card+grid%2C+one+card+per+portfolio+app.;Every+card+links+out+to+its+GitHub+repo." alt="Typing SVG" />
-</a>
+
 
 <br><br>
 
@@ -16,7 +14,7 @@
 
 ---
 
-### 🧭 What this is
+### Site
 
 A single static page: an org mark, a card grid — one card per app in the portfolio, each
 linking out to that app's GitHub repo — and a footer link to the GitHub org.
@@ -29,7 +27,7 @@ linking out to that app's GitHub repo — and a footer link to the GitHub org.
 
 ---
 
-### ▶️ Run it
+### Run it
 
 ```bash
 python -m http.server 8934
