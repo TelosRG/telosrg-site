@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Platform &middot; Telos Research Group</title>
-  <meta name="description" content="How a Telos agent fleet is built: the work graph, guardrails that fail closed, and verification checked against git rather than asserted." />
+  <meta name="description" content="The strategy behind a Telos agent fleet: structure instead of supervision, human authority moved earlier, and completion proved rather than claimed." />
   <link rel="icon" href="https://avatars.githubusercontent.com/u/323324518?v=4" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -36,51 +36,55 @@
     <article class="prose">
       <p class="eyebrow">Platform</p>
 
-      <p class="lead">A fleet is only worth running if you can say what it did and prove it.</p>
+      <p class="lead">The limit on agent-written software is not how fast the code gets written. It is how much of it you can responsibly accept.</p>
 
-      <p>Every non-trivial change moves through the same path: recon before planning, a plan a human approves before any code exists, implementation split into slices, and review by something that never watched the code get written.</p>
+      <p>Most teams putting agents on a real codebase stall in the same place. The demos work. The throughput is real. And then nobody can say what was done, who agreed to it, or what would have caught it if it were wrong &mdash; so the work queues behind the few people trusted to read it, and the gain evaporates.</p>
 
-      <div class="pipeline" role="img" aria-label="The work graph: scout, then architect, then a human gate, then builders, then reviewers, then integrator.">
-        <span class="pipeline__node">scout</span>
+      <p>That is not a model problem, and another round of prompt tuning will not fix it. It is a question of what shape work is required to take, decided once and made to hold when nobody is watching.</p>
+
+      <div class="pipeline" role="img" aria-label="The shape of a change: establish facts, propose a plan, human decision, do the work, independent verification.">
+        <span class="pipeline__node">establish facts</span>
         <span class="pipeline__arrow" aria-hidden="true">&rarr;</span>
-        <span class="pipeline__node">architect</span>
+        <span class="pipeline__node">propose a plan</span>
         <span class="pipeline__arrow" aria-hidden="true">&rarr;</span>
-        <span class="pipeline__node pipeline__node--gate">human gate</span>
+        <span class="pipeline__node pipeline__node--gate">human decision</span>
         <span class="pipeline__arrow" aria-hidden="true">&rarr;</span>
-        <span class="pipeline__node">builders</span>
+        <span class="pipeline__node">do the work</span>
         <span class="pipeline__arrow" aria-hidden="true">&rarr;</span>
-        <span class="pipeline__node">reviewers</span>
-        <span class="pipeline__arrow" aria-hidden="true">&rarr;</span>
-        <span class="pipeline__node">integrator</span>
+        <span class="pipeline__node">verify independently</span>
       </div>
 
       <div class="layer-stack">
         <section class="layer">
           <span class="layer__number">01</span>
           <div>
-            <h2>The work graph</h2>
-            <p>Six specialized nodes, each with one job. Scout does read-only recon and returns verified <code>file:line</code> facts &mdash; never a plan, never an opinion. The architect turns those facts into a plan and decides the shape: a single loop when slices share files, a parallel fan-out when three or more are genuinely disjoint. Builders implement one slice each, isolated in their own worktrees, and never review their own work. An integrator proves the whole is coherent, not just that each part passed alone.</p>
+            <h2>Structure instead of supervision</h2>
+            <p>Reviewing agent output case by case does not scale and is never consistent twice. When every change travels the same path, the question stops being &ldquo;is this one good?&rdquo; &mdash; asked fresh, forever &mdash; and becomes &ldquo;did the process hold?&rdquo;, which has an answer you can check. Consistency is what makes the volume survivable.</p>
           </div>
         </section>
 
         <section class="layer">
           <span class="layer__number">02</span>
           <div>
-            <h2>Guardrails that actually block</h2>
-            <p>Policy that is only written down is policy that gets skipped under deadline. The rules that matter run as hooks that deny the call: a builder cannot write outside the file set approved at the gate, and the commit guard rejects attribution trailers on every agent type. Both fail <em>closed</em> &mdash; a broken guardrail denies loudly rather than quietly letting through the thing it exists to stop.</p>
+            <h2>Human authority, moved earlier</h2>
+            <p>The costly decision is approving the plan, not reacting to the result. Saying no is cheapest before the code exists, and a plan is small enough to actually read. People keep control of scope and of what is explicitly <em>not</em> being attempted, and spend their attention at the point where it still changes the outcome rather than at the point where it only creates rework.</p>
           </div>
         </section>
 
         <section class="layer">
           <span class="layer__number">03</span>
           <div>
-            <h2>Verified, not asserted</h2>
-            <p>Agents report success; that is not evidence. Every run writes shared state each node stamps as its own, so the edges can be audited after the fact &mdash; a review with no build behind it, an integrator that ran over a rejected slice, a run marked done with a slice never built. Closing a run checks the work landed in <strong>git</strong>, not that a status file says so.</p>
+            <h2>Proof, not assurance</h2>
+            <p>An agent reporting success is not evidence of anything. Work is checked by something that had no hand in producing it, and completion is confirmed against the system of record rather than a status someone wrote down. The output is a defensible account of what changed, who approved it, and what established that it was right &mdash; the thing an auditor, a regulator, or your own incident review will ask for.</p>
           </div>
         </section>
       </div>
 
-      <p class="after-stack">The reference implementation of all three layers is public and readable &mdash; see <a href="code.html">Code</a>.</p>
+      <h2>Knowing when not to</h2>
+
+      <p>Most changes need none of this. A single fix, a one-line config, anything you could describe in a paragraph &mdash; putting that through a structured pipeline buys nothing and costs real time and money. Judging where the structure earns its keep, and saying so plainly when it does not, is most of the work.</p>
+
+      <p class="after-stack">This is the strategy. The mechanism that implements it is open and readable rather than described in a slide &mdash; see <a href="code.html">Code</a>.</p>
     </article>
   </main>
 

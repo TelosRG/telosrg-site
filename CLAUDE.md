@@ -48,7 +48,7 @@ Five hand-written HTML pages sharing one stylesheet:
 | `index.html` | The front page: header, hero (headline + blurb + link to Code), footer. Deliberately sparse — it carries no card grid. |
 | `code.html` | `graph_agents` as a featured card, then the projects it has been run against as the ordinary card grid. |
 | `about.html` | What the group is and why the portfolio is structured the way it is. |
-| `platform.html` | How the work gets built, as three numbered layers (product / agent / infrastructure). |
+| `platform.html` | The strategy, as three numbered layers. Deliberately high-altitude. |
 | `privacy.html` | Privacy Policy. |
 | `terms.html` | Terms of Service. |
 | `styles.css` | All styling for all five pages: the palette (CSS custom properties in `:root`) and the mobile-first layout rules (see `## UI targets` below). |
@@ -84,11 +84,16 @@ it's the GitHub org's own avatar and stays in sync with it automatically.
   no build step reading it and there must never be one. Note the repo currently sits under
   a personal account rather than the `TelosRG` org; if it moves, the URL in both pages is
   what needs updating.
-- **Copy claims must stay true to the fleet.** The three layers on `platform.html` and the
-  facts on the featured card describe real behavior in `graph_agents` — the guards that
-  fail closed, the state audit, the close checked against git. If the fleet's behavior
-  changes, this copy becomes a false claim about a real product; re-read
-  `graph_agents/README.md` before editing either page.
+- **`platform.html` is strategy; `code.html` is mechanism.** Platform argues *why* the
+  structure is worth adopting and names no internal machinery — no node names, no hook
+  names, no `file:line`, no worktrees, no branch or state-file detail. Its pipeline strip
+  is generic phases (establish facts → propose a plan → human decision → do the work →
+  verify independently), not the fleet's own node roster. Implementation detail belongs on
+  `code.html` or in the repo. If Platform starts naming machinery again, it has drifted.
+- **Copy claims must stay true to the fleet.** The featured card on `code.html` describes
+  real behavior in `graph_agents` — the guards that fail closed, the state audit, the close
+  checked against git. If the fleet's behavior changes, this copy becomes a false claim
+  about a real product; re-read `graph_agents/README.md` before editing that page.
 - **Color palette is derived from the TelosRG GitHub org avatar** — a black background with
   a swirling rainbow-eye mark whose iris is teal/cyan/green. The palette deliberately does
   not reproduce the full rainbow: black/near-black as the base, teal as the primary accent,
