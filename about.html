@@ -40,17 +40,11 @@
 
       <p>Most teams putting agents on their codebase end up choosing between two bad options. Let the agent work unsupervised, and you are merging a diff nobody watched get written. Review every change by hand, and you have capped the whole thing at the throughput of one reader &mdash; which is the speed you already had.</p>
 
-      <p>There is a third option, and it is structural rather than clever: force every non-trivial change through the same shape, every time. Facts get established before anyone plans. A human approves the plan &mdash; its shape, its slices, and the explicit list of what is <em>not</em> being done &mdash; before any code exists. A reviewer working in a context that never saw the code being written gets real authority to reject it. And nothing is called done on the strength of a claim: the close is checked against git, not against a status file that only knows what it was told.</p>
+      <p>There is a third option, and it is structural rather than clever: decide once what shape a change has to take, and make that shape hold when nobody is watching. Approval happens while a decision is still cheap to reverse. Verification is done by something with no stake in the result. Completion is demonstrated rather than reported. <a href="platform.html">How it works</a> makes the case in full.</p>
 
-      <p>That structure is what we build, adapt, and hand over. <a href="platform.html">How it works</a> lays out the three layers; <a href="code.html">Code</a> is the working reference implementation, open and readable rather than described in a slide.</p>
+      <p>That structure is what we build, adapt, and hand over &mdash; along with the judgment about where it earns its cost and where it plainly does not. A firm that sells you orchestration for every change is selling you overhead.</p>
 
-      <hr class="divider" />
-
-      <h2>What we will tell you not to do</h2>
-
-      <p>Most changes should not go through a graph at all. One file, one bug, one endpoint, or anything whose slices would touch the same files &mdash; those belong in a single loop: one agent, one context, done. Orchestration costs real tokens and real wall-clock, and it only earns that back when the slices are genuinely independent and the verification genuinely needs eyes that never saw the code written.</p>
-
-      <p>A firm that sells you orchestration for every change is selling you overhead. The rough line we use is three or more independent slices, or a change you would not merge unreviewed.</p>
+      <p><a href="code.html">Code</a> is the working reference implementation: open and readable, rather than described in a slide.</p>
 
       <hr class="divider" />
 
