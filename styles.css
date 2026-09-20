@@ -454,3 +454,127 @@ main {
 .after-stack {
   margin-top: 2rem;
 }
+
+/* ---------------------------------------------------------------
+   front-page hero + interior page intros
+   --------------------------------------------------------------- */
+
+/* the front page is short — keep the footer at the bottom of the
+   viewport instead of floating it under the hero */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.hero {
+  padding: 2rem 0 3rem;
+}
+
+.hero__headline {
+  max-width: 18ch;
+  margin: 0 0 1.25rem;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero__headline em {
+  font-style: italic;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__blurb {
+  margin: 0 0 1.75rem;
+  max-width: 46ch;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero__link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--teal);
+}
+
+.hero__link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* intro block above an interior page's content */
+
+.page-intro {
+  max-width: 62ch;
+  margin-bottom: 2rem;
+}
+
+.page-intro__note {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.page-intro__note a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-intro__note a:hover,
+.page-intro__note a:focus-visible {
+  color: var(--focus);
+}
+
+.page-intro__note a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem 0 4rem;
+  }
+
+  .hero__headline {
+    max-width: 16ch;
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 4rem 0 5rem;
+  }
+
+  .hero__headline {
+    font-size: 3.25rem;
+  }
+
+  .hero__blurb {
+    font-size: 1.15rem;
+  }
+}

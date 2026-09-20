@@ -1,9 +1,10 @@
 # telosrg-site
 
 The public marketing site for Telos Research Group — a static, multi-page site. The front
-page is a card grid, one card per app in the portfolio, each linking out to that app's
-GitHub repo; four interior pages carry the long-form copy (About, Platform) and the legal
-text (Privacy Policy, Terms of Service). No backend, no build step, no framework.
+page is a hero: the org mark, the name, the tagline, a headline and a one-paragraph blurb.
+Five interior pages carry the portfolio (Code), the long-form copy (About, Platform) and
+the legal text (Privacy Policy, Terms of Service). No backend, no build step, no
+framework.
 
 ## Running it
 
@@ -18,10 +19,10 @@ Any static file server works — this is plain HTML/CSS, no bundler, no dependen
 
 ## Testing it
 
-No test suite. Verify by eye: serve the directory as above and check that the card grid
-renders, each card links to the right GitHub repo, the nav and footer links reach every
-interior page, and the layout holds at 360px width with no horizontal overflow on **all
-five** pages — not just `index.html`.
+No test suite. Verify by eye: serve the directory as above and check that the hero renders
+on the front page, the card grid renders on `code.html` with each card pointing at the
+right GitHub repo, the nav and footer links reach every interior page, and the layout holds
+at 360px width with no horizontal overflow on **all six** pages — not just `index.html`.
 
 ## Deploying it
 
@@ -36,7 +37,8 @@ Five hand-written HTML pages sharing one stylesheet:
 
 | File | What it is |
 |---|---|
-| `index.html` | The front page: header, the portfolio card grid, footer. |
+| `index.html` | The front page: header, hero (headline + blurb + link to Code), footer. Deliberately sparse — it carries no card grid. |
+| `code.html` | The portfolio card grid, one card per app, each linking out to its GitHub repo. |
 | `about.html` | What the group is and why the portfolio is structured the way it is. |
 | `platform.html` | How the work gets built, as three numbered layers (product / agent / infrastructure). |
 | `privacy.html` | Privacy Policy. |
@@ -45,8 +47,10 @@ Five hand-written HTML pages sharing one stylesheet:
 
 - Every page repeats the same header, nav and footer markup inline. **There is no
   templating and no include** — adding a nav link or changing the tagline means editing
-  five files. That is the accepted cost of having no build step; don't introduce a
+  six files. That is the accepted cost of having no build step; don't introduce a
   generator to avoid it without deciding that trade deliberately.
+- `index.html` is the one page whose header does *not* wrap the org mark in a link — it is
+  already home. Every other page wraps it in `<a class="mark-link" href="index.html">`.
 - The current page marks itself with `aria-current="page"` in the nav (and in the footer
   legal bar on the two legal pages).
 - No JavaScript, anywhere. Cards are plain `<a>` elements — clicking one navigates to
@@ -62,7 +66,7 @@ it's the GitHub org's own avatar and stays in sync with it automatically.
 - **The card list is hand-written, not generated.** There is no build step reading
   `graph_agents/portfolio/registry.json` — that would be an edge into the fleet's tooling,
   which this app must never depend on. When the portfolio changes (an app added, removed, or
-  renamed), a human or an agent updates the card markup in `index.html` by hand, the same way
+  renamed), a human or an agent updates the card markup in `code.html` by hand, the same way
   the fleet's own `registry.json` gets updated. See `## The one invariant` in
   `../graph_agents/CLAUDE.md`.
 - **Color palette is derived from the TelosRG GitHub org avatar** — a black background with
@@ -81,7 +85,7 @@ Copied from `graph_agents/conventions/mobile-first.md`, then owned locally.
 | Tier | Width | What it means |
 |---|---|---|
 | **Floor** | **360px portrait** | Nothing may break or overflow horizontally at 360. |
-| Tablet | `>= 768px` | Cards go from 1 column to 2; the nav moves from under the header onto the header row. |
+| Tablet | `>= 768px` | Cards go from 1 column to 2; the nav moves from under the header onto the header row; the hero headline scales up. |
 | Desktop | `>= 1024px` | Header type scales up. |
 | Content cap | `>= 1280px` | Page content gets a max-width so it stops stretching. |
 
