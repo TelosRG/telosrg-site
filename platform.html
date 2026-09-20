@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platform &middot; Telos Research Group</title>
+  <meta name="description" content="How Telos Research Group builds and ships a portfolio of independent apps: the product, agent, and infrastructure layers." />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/323324518?v=4" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="mark-link" href="index.html" aria-label="Telos Research Group home">
+      <img
+        class="mark"
+        src="https://avatars.githubusercontent.com/u/323324518?v=4"
+        alt="Telos Research Group mark"
+        width="56"
+        height="56"
+      />
+    </a>
+    <div class="header-text">
+      <h1>Telos Research Group</h1>
+      <p class="tagline">An independent portfolio of products, tools, and research.</p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="platform.html" aria-current="page">Platform</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="prose">
+      <p class="eyebrow">Platform</p>
+
+      <p class="lead">A portfolio this wide is only maintainable because the method is shared even though the code is not.</p>
+
+      <p>Every app is built the same way: scouted before it is planned, planned before it is written, reviewed by something that never saw it being written. What follows is that method as three layers &mdash; the products at the top, the agent fleet that builds them in the middle, the ground they run on underneath.</p>
+
+      <div class="layer-stack">
+        <section class="layer">
+          <span class="layer__number">01</span>
+          <div>
+            <h2>Product Layer</h2>
+            <p>Each app is a standalone repository with its own history, dependencies, deploy, and lifecycle. No app imports from, builds against, or reads files from another. Shared needs are copied, never coupled, so any one product can be shipped, handed off, or retired on its own.</p>
+          </div>
+        </section>
+
+        <section class="layer">
+          <span class="layer__number">02</span>
+          <div>
+            <h2>Agent Layer</h2>
+            <p>A fleet of specialized agents &mdash; scout, architect, builder, reviewer, integrator &mdash; that operates <em>on</em> the apps and ships inside none of them. Work runs as a graph: recon first, a plan through a human gate, then parallel build slices converging on a single reviewed merge point.</p>
+          </div>
+        </section>
+
+        <section class="layer">
+          <span class="layer__number">03</span>
+          <div>
+            <h2>Infrastructure Layer</h2>
+            <p>Per-app deploys with no shared runtime, no root workspace, and no cross-repo lockfile. Conventions travel as prose and templates that each repo owns locally and is free to let drift. Removing the tooling from disk must never break an app's build, test, or deploy.</p>
+          </div>
+        </section>
+      </div>
+
+      <p class="after-stack">The portfolio itself is on the <a href="index.html">front page</a>, and every repository is public at <a href="https://github.com/TelosRG" target="_blank" rel="noopener">github.com/TelosRG</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-legal">
+      <span class="copyright">&copy; 2026 Telos Research Group</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+</body>
+</html>

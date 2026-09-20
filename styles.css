@@ -231,3 +231,226 @@ main {
     max-width: 1080px;
   }
 }
+
+/* ---------------------------------------------------------------
+   nav + interior pages (about / platform / privacy / terms)
+   --------------------------------------------------------------- */
+
+.site-header {
+  flex-wrap: wrap;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  width: 100%;
+  order: 3;
+  margin-top: 0.25rem;
+}
+
+.site-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.15rem;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--teal);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--teal);
+}
+
+.site-nav a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* the org mark links home on interior pages */
+.mark-link {
+  display: inline-flex;
+  flex: none;
+  border-radius: 50%;
+}
+
+.mark-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+/* long-form prose */
+
+.prose {
+  max-width: 62ch;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+}
+
+.lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.prose p {
+  margin: 0 0 1.1rem;
+  color: var(--text-dim);
+}
+
+.prose ul,
+.prose ol {
+  margin: -0.35rem 0 1.4rem;
+  padding-left: 1.3rem;
+  color: var(--text-dim);
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.prose h2 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.prose a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover,
+.prose a:focus-visible {
+  color: var(--focus);
+}
+
+.prose a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.divider {
+  width: 100%;
+  height: 0;
+  margin: 2.25rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.updated {
+  margin: -0.75rem 0 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.contact {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--text-dim);
+}
+
+/* the numbered layer stack (platform) */
+
+.layer-stack {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  max-width: 62ch;
+}
+
+.layer {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.layer__number {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+  padding-top: 0.35rem;
+}
+
+.layer h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.layer p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* footer with legal links */
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 0.75rem;
+}
+
+.footer-legal .copyright {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .site-nav {
+    order: 0;
+    width: auto;
+    margin-top: 0;
+    margin-left: auto;
+    gap: 1.5rem;
+  }
+
+  .layer {
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.after-stack {
+  margin-top: 2rem;
+}

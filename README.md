@@ -16,8 +16,10 @@
 
 ### Site
 
-A single static page: an org mark, a card grid — one card per app in the portfolio, each
-linking out to that app's GitHub repo — and a footer link to the GitHub org.
+A static site, five hand-written pages sharing one stylesheet. The front page is an org
+mark and a card grid — one card per app in the portfolio, each linking out to that app's
+GitHub repo. Behind it sit **About** (what the group is), **Platform** (how the work gets
+built, in three layers), and the **Privacy Policy** and **Terms of Service**.
 
 ![HTML](https://img.shields.io/badge/-HTML-050607?style=flat-square&logo=html5&logoColor=35e0c4)
 ![CSS](https://img.shields.io/badge/-CSS-050607?style=flat-square&logo=css3&logoColor=8b5cf6)
