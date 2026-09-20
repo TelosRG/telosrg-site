@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Code &middot; Telos Research Group</title>
-  <meta name="description" content="The Telos Research Group portfolio — every product and tool, each in its own public repository." />
+  <meta name="description" content="graph_agents — the open reference implementation of the Telos agent fleet — and the projects it has been run against." />
   <link rel="icon" href="https://avatars.githubusercontent.com/u/323324518?v=4" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,7 +23,7 @@
     </a>
     <div class="header-text">
       <h1>Telos Research Group</h1>
-      <p class="tagline">An independent portfolio of products, tools, and research.</p>
+      <p class="tagline">Helping companies build agent fleets they can trust with real code.</p>
     </div>
     <nav class="site-nav" aria-label="Main">
       <a href="about.html">About</a>
@@ -35,11 +35,27 @@
   <main>
     <div class="page-intro">
       <p class="eyebrow">Code</p>
-      <p class="lead">Every project in the portfolio, each one its own public repository.</p>
-      <p class="page-intro__note">Nothing here imports from anything else here. A repository can be cloned, built, or retired on its own terms &mdash; see <a href="platform.html">Platform</a> for why that is enforced rather than encouraged.</p>
+      <p class="lead">The method is not a diagram. It is a repository you can read.</p>
+      <p class="page-intro__note">Everything below is public. The fleet is the reference implementation of the three layers described under <a href="platform.html">Platform</a>; the projects beneath it are what it has actually been run against.</p>
     </div>
 
-    <section class="cards" aria-label="Portfolio">
+    <a class="card card--featured" href="https://github.com/njcurtis3/graph_agents" target="_blank" rel="noopener">
+      <div class="card-top">
+        <span class="card-kind">fleet</span>
+      </div>
+      <h2>graph_agents</h2>
+      <p>The reference implementation. Six node definitions, six routers, and guardrail hooks that fail closed &mdash; plus the read-only checkers that verify a run against git rather than trusting its own status file.</p>
+      <ul class="card-facts">
+        <li>scout &rarr; architect &rarr; human gate &rarr; builders &rarr; reviewers &rarr; integrator</li>
+        <li>Scope and commit-attribution guards enforced as <code>PreToolUse</code> hooks</li>
+        <li>Run state audited for edges that never actually held</li>
+      </ul>
+      <span class="card-link">View on GitHub &rarr;</span>
+    </a>
+
+    <h2 class="section-label">Run against</h2>
+
+    <section class="cards" aria-label="Projects the fleet has been run against">
       <a class="card" href="https://github.com/njcurtis3/huntstack" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="card-kind">product</span>

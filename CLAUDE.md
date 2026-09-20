@@ -2,9 +2,17 @@
 
 The public marketing site for Telos Research Group — a static, multi-page site. The front
 page is a hero: the org mark, the name, the tagline, a headline and a one-paragraph blurb.
-Five interior pages carry the portfolio (Code), the long-form copy (About, Platform) and
-the legal text (Privacy Policy, Terms of Service). No backend, no build step, no
-framework.
+Five interior pages carry the open reference implementation (Code), the long-form copy
+(About, Platform) and the legal text (Privacy Policy, Terms of Service). No backend, no
+build step, no framework.
+
+**What the site is selling.** Telos is positioned as a firm that helps *other companies*
+build fleets of coding agents — not as a holding company for a portfolio of side projects.
+That distinction drives every page: the apps under `code.html` are framed as what the
+fleet has been run against, evidence rather than inventory. No engagement model, pricing,
+or service tier is named anywhere, deliberately — the LLC is not formed yet, so the copy
+positions the thesis and stops short of promises. Don't add a services or pricing section
+without that changing first.
 
 ## Running it
 
@@ -38,7 +46,7 @@ Five hand-written HTML pages sharing one stylesheet:
 | File | What it is |
 |---|---|
 | `index.html` | The front page: header, hero (headline + blurb + link to Code), footer. Deliberately sparse — it carries no card grid. |
-| `code.html` | The portfolio card grid, one card per app, each linking out to its GitHub repo. |
+| `code.html` | `graph_agents` as a featured card, then the projects it has been run against as the ordinary card grid. |
 | `about.html` | What the group is and why the portfolio is structured the way it is. |
 | `platform.html` | How the work gets built, as three numbered layers (product / agent / infrastructure). |
 | `privacy.html` | Privacy Policy. |
@@ -69,6 +77,18 @@ it's the GitHub org's own avatar and stays in sync with it automatically.
   renamed), a human or an agent updates the card markup in `code.html` by hand, the same way
   the fleet's own `registry.json` gets updated. See `## The one invariant` in
   `../graph_agents/CLAUDE.md`.
+- **The site describes `graph_agents`, but does not depend on it.** `platform.html` and
+  `code.html` explain the fleet and link to `https://github.com/njcurtis3/graph_agents` by
+  URL. That is a prose cross-reference, which the constitution explicitly allows — the
+  mechanical test is that deleting `graph_agents/` from disk breaks nothing here. There is
+  no build step reading it and there must never be one. Note the repo currently sits under
+  a personal account rather than the `TelosRG` org; if it moves, the URL in both pages is
+  what needs updating.
+- **Copy claims must stay true to the fleet.** The three layers on `platform.html` and the
+  facts on the featured card describe real behavior in `graph_agents` — the guards that
+  fail closed, the state audit, the close checked against git. If the fleet's behavior
+  changes, this copy becomes a false claim about a real product; re-read
+  `graph_agents/README.md` before editing either page.
 - **Color palette is derived from the TelosRG GitHub org avatar** — a black background with
   a swirling rainbow-eye mark whose iris is teal/cyan/green. The palette deliberately does
   not reproduce the full rainbow: black/near-black as the base, teal as the primary accent,

@@ -16,11 +16,12 @@
 
 ### Site
 
-A static site, six hand-written pages sharing one stylesheet. The front page is an org
-mark, a headline and a short blurb. Behind it sit **Code** (the portfolio — one card per
-app, each linking out to its GitHub repo), **About** (what the group is), **Platform**
-(how the work gets built, in three layers), and the **Privacy Policy** and **Terms of
-Service**.
+A static site, six hand-written pages sharing one stylesheet. Telos is positioned as a
+firm that helps companies build fleets of coding agents. The front page is an org mark, a
+headline and a short blurb. Behind it sit **About** (the thesis, and when *not* to build a
+graph), **Platform** (the three layers: the work graph, guardrails that fail closed, and
+verification checked against git), **Code** (`graph_agents` plus the projects it has been
+run against), and the **Privacy Policy** and **Terms of Service**.
 
 ![HTML](https://img.shields.io/badge/-HTML-050607?style=flat-square&logo=html5&logoColor=35e0c4)
 ![CSS](https://img.shields.io/badge/-CSS-050607?style=flat-square&logo=css3&logoColor=8b5cf6)

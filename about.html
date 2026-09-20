@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About &middot; Telos Research Group</title>
-  <meta name="description" content="About Telos Research Group — an independent portfolio of products, tools, and research, each standing on its own." />
+  <meta name="description" content="About Telos Research Group — why agent fleets need structure, and when not to build one at all." />
   <link rel="icon" href="https://avatars.githubusercontent.com/u/323324518?v=4" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,7 +23,7 @@
     </a>
     <div class="header-text">
       <h1>Telos Research Group</h1>
-      <p class="tagline">An independent portfolio of products, tools, and research.</p>
+      <p class="tagline">Helping companies build agent fleets they can trust with real code.</p>
     </div>
     <nav class="site-nav" aria-label="Main">
       <a href="about.html" aria-current="page">About</a>
@@ -36,15 +36,21 @@
     <article class="prose">
       <p class="eyebrow">About</p>
 
-      <p class="lead">Telos Research Group builds a small portfolio of independent products, tools, and research, each one standing entirely on its own.</p>
+      <p class="lead">Telos Research Group helps companies build fleets of coding agents that can be trusted with real systems.</p>
 
-      <p>We are not a single product with features bolted on over time. Every app in the portfolio is a separate repository with its own history, dependencies, deploy, and lifecycle &mdash; hunting intelligence, podcast generation, knowledge-graph extraction, fleet tooling. They share conventions and a build method. They share no code.</p>
+      <p>Most teams putting agents on their codebase end up choosing between two bad options. Let the agent work unsupervised, and you are merging a diff nobody watched get written. Review every change by hand, and you have capped the whole thing at the throughput of one reader &mdash; which is the speed you already had.</p>
 
-      <p>That is a deliberate constraint, not an accident of growth. A shared runtime package would turn a handful of standalone products into one distributed monolith that cannot be sold, killed, or handed off separately. So when two apps need the same thing, we copy it. Duplication across apps is cheaper than the coupling that removes the option to walk away from any one of them.</p>
+      <p>There is a third option, and it is structural rather than clever: force every non-trivial change through the same shape, every time. Facts get established before anyone plans. A human approves the plan &mdash; its shape, its slices, and the explicit list of what is <em>not</em> being done &mdash; before any code exists. A reviewer working in a context that never saw the code being written gets real authority to reject it. And nothing is called done on the strength of a claim: the close is checked against git, not against a status file that only knows what it was told.</p>
 
-      <p>What we do share is <a href="platform.html">how the work gets built</a> &mdash; an agent fleet that operates <em>on</em> the apps and ships inside none of them. It is the reason a portfolio this wide is maintainable by a group this small.</p>
+      <p>That structure is what we build, adapt, and hand over. <a href="platform.html">How it works</a> lays out the three layers; <a href="code.html">Code</a> is the working reference implementation, open and readable rather than described in a slide.</p>
 
-      <p>We expand the portfolio when a problem is worth owning end to end, and we retire from it without ceremony when one isn't.</p>
+      <hr class="divider" />
+
+      <h2>What we will tell you not to do</h2>
+
+      <p>Most changes should not go through a graph at all. One file, one bug, one endpoint, or anything whose slices would touch the same files &mdash; those belong in a single loop: one agent, one context, done. Orchestration costs real tokens and real wall-clock, and it only earns that back when the slices are genuinely independent and the verification genuinely needs eyes that never saw the code written.</p>
+
+      <p>A firm that sells you orchestration for every change is selling you overhead. The rough line we use is three or more independent slices, or a change you would not merge unreviewed.</p>
 
       <hr class="divider" />
 

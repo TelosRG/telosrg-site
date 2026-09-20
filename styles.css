@@ -578,3 +578,99 @@ main {
     font-size: 1.15rem;
   }
 }
+
+/* ---------------------------------------------------------------
+   featured card, pipeline diagram, section label
+   --------------------------------------------------------------- */
+
+.card--featured {
+  margin-bottom: 2.5rem;
+  border-color: rgba(53, 224, 196, 0.35);
+  background:
+    linear-gradient(180deg, rgba(53, 224, 196, 0.06), transparent 60%),
+    var(--bg-raised);
+}
+
+.card-facts {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.card-facts li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.card code,
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--teal);
+  background: rgba(53, 224, 196, 0.08);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.section-label {
+  margin: 0 0 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+/* the work-graph pipeline */
+
+.pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.75rem 0 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-raised);
+}
+
+.pipeline__node {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  white-space: nowrap;
+}
+
+.pipeline__node--gate {
+  color: var(--teal);
+  border-color: rgba(53, 224, 196, 0.45);
+  background: rgba(53, 224, 196, 0.08);
+}
+
+.pipeline__arrow {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .card--featured {
+    padding: 1.75rem;
+  }
+
+  .pipeline {
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .pipeline__node {
+    font-size: 0.8rem;
+  }
+}
