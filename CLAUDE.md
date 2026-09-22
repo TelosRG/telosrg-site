@@ -75,7 +75,12 @@ it's the GitHub org's own avatar and stays in sync with it automatically.
   `graph_agents/portfolio/registry.json` — that would be an edge into the fleet's tooling,
   which this app must never depend on. When the portfolio changes (an app added, removed, or
   renamed), a human or an agent updates the card markup in `code.html` by hand, the same way
-  the fleet's own `registry.json` gets updated. See `## The one invariant` in
+  the fleet's own `registry.json` gets updated.
+- **The cards are a curated subset, not a mirror of the registry.** `code.html` shows
+  `graph_agents` plus only the projects chosen as public evidence — currently `roamex` and
+  `fleetview`. `huntstack` and `podcraft-ai` were removed on purpose on 2026-09-22 and are
+  still active in `portfolio/registry.json`. A registry entry missing from this page is
+  **not drift**; do not "restore" cards to make the page match the registry. See `## The one invariant` in
   `../graph_agents/CLAUDE.md`.
 - **The site describes `graph_agents`, but does not depend on it.** `platform.html` and
   `code.html` explain the fleet and link to `https://github.com/njcurtis3/graph_agents` by
